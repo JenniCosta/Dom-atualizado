@@ -1,7 +1,8 @@
+let nome = document.querySelector('input');
+
 function entrar(){
-    let nome = document.querySelector('input').value;
-    if(nome.trim()){
-        document.querySelector('#usuario').innerHTML = nome;
+    if(nome.value.trim()){
+        document.querySelector('#usuario').innerHTML = nome.value;
 
         document.querySelector('#entrada').style.display = "none";
         document.querySelector('header').style.display = "flex";
@@ -9,6 +10,12 @@ function entrar(){
 }
 
 document.querySelector('button').onclick = entrar;
+
+nome.onkeyup = function(evento){
+    if(evento.key === "Enter"){
+        entrar();
+    }
+}
 
 function logar(){
     console.log(this.innerHTML);
